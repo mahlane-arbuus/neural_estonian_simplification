@@ -1,0 +1,53 @@
+
+# et_set_train.yaml
+
+## Where the samples will be written
+save_data: en-sen/run/example
+## Where the vocab(s) are stored
+src_vocab: en-sen/run/example.vocab.src
+tgt_vocab: en-sen/run/example.vocab.tgt
+share_vocab: True
+#Prevent overwriting existing files in the folder
+overwrite: True
+
+src_lang: et
+tgt_lang: set
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: data/quality+translated/train_src.txt
+        path_tgt: data/quality+translated/train_tgt.txt
+    valid:
+        path_src: data/quality+translated/val_src.txt
+        path_tgt: data/quality+translated/val_tgt.txt
+        
+# Train on a single GPU
+world_size: 1
+gpu_ranks: [0]
+
+src_vocab_size: 130000
+tgt_voacb_size: 130000
+    
+#parameters
+global_attention: general
+# If training from a checkpoint then this is the path to the pretrained model’s state_dict.
+
+encoder_type: brnn
+layers: 2
+feat_vec_exponent: 0.7
+seed: 3435
+rnn_type: LSTM
+max_grad_norm: 5
+param_init: 0.1
+optim: sgd
+sample: 0
+learning_rate_decay: 0.7
+learning_rate: 1.0
+report_every: 50
+    
+# Where to save the checkpoints
+save_model: en-sen/run/quality+translated/model
+save_checkpoint_steps: 5000
+train_steps: 60000
+valid_steps: 5000

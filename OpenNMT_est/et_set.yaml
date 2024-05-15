@@ -1,0 +1,19 @@
+# et_set.yaml
+
+## Where the samples will be written
+save_data: en-sen/run/example
+## Where the vocab(s) will be written
+src_vocab: en-sen/run/example.vocab.src
+tgt_vocab: en-sen/run/example.vocab.tgt
+#Prevent overwriting existing files in the folder
+overwrite: True
+share_vocab: True
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: data/quality+translated/train_src.txt
+        path_tgt: data/quality+translated/train_tgt.txt
+    valid:
+        path_src: data/quality+translated/val_src.txt
+        path_tgt: data/quality+translated/val_tgt.txt
